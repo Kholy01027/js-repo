@@ -208,3 +208,111 @@
     // // Use Variables b + d To Get This Valus
     // console.log((Math.floor(b) / Math.ceil(d)).toFixed(2)); // 66.67 => String
     // console.log(parseInt(Math.ceil(b) / Math.ceil(d))); // 67 => Number
+
+
+    // Assignment and Challenges - WEEK 4.-----------------------
+    /*
+    -Number Methods----------
+        --isInteger()
+        --isNan()
+        --MAX_VALUE()
+        --MIN_VALUE()
+        --toFixed()
+        --toString()
+        --parseFloat()
+        --parseInt()
+    -Math Object-------------
+        --ceil()
+        --fllor()
+        --round()
+        --max(x, y, z)
+        --min(x, y, z)
+        --pow(x, y)
+        --random()
+        --sign()
+        --trunc()
+    -String Methods----------
+        --charAt(), []
+        --length()
+        --trim()
+        --toUpperCase(), toLowerCase()
+        --indexOf(), lastIndexOf()
+        --slice()
+        --split()
+        --substr()
+        --substring()
+        --includes()
+        --startsWith(), endsWith
+    */
+
+    let a = "Elzero Web School";
+
+    console.log(a.slice(2, 6).charAt(0).toUpperCase()+a.slice(3, 6)); // Zero
+
+    console.log(a.charAt(13).toUpperCase().repeat(8)); // HHHHHHHH
+
+    console.log(a.split(" ", 1)); // ["Elzero"]
+
+    console.log(`${a.substr(0, 6)} ${a.substr(11)}`); // Elzero School
+
+    console.log(`${a.charAt(0).toLowerCase()}${a.toUpperCase().slice(1 , a.length - 1)}${a.charAt(a.length - 1).toLowerCase()}`); // eLZERO WEB SCHOOl
+    
+    // ---------------------------------
+    // Examples
+    console.log(100_000); // 100000
+    console.log(100000); // 100000
+    console.log(5e4 + 5e4); // 100000
+
+    // Your Solutions
+    console.log(10 ** 5); // 100000
+    console.log(Math.pow(10, 5)); // 100000
+    console.log(10 * 10 * 10 * 10 * 10); // 100000
+    console.log(1e5); // 100000
+    console.log(2e5 / 2); // 100000
+    console.log(10000 * 10); // 100000
+    console.log(1e4 * 1e1); // 100000
+    console.log(parseInt(100000.54)); // 100000
+    console.log(Math.max(Math.pow(10, 5), 1e4, 4e2)); // 100000
+    console.log(Math.min(1e5, 1e99, 1e99999, 1e999999999999999999999)); // 100000
+
+    console.log(Number.MIN_SAFE_INTEGER * -1); // 9007199254740991
+    //!!!!!!!!!!!!!!
+    console.log(Number.MAX_SAFE_INTEGER); // 16
+
+    let myVar = "100.56789 Views";
+
+    console.log(parseInt(myVar)); // 100
+    console.log(Number(parseFloat(myVar).toFixed(2))); // 100.57
+
+    let num = 10;
+
+    console.log(Number.isInteger(num) + Number.isInteger(num) ); // 2
+
+    let flt = 10.4;
+
+    console.log(Math.round(flt)); // 10
+    console.log(Math.floor(flt)); // 10
+    console.log(Math.trunc(flt)); // 10
+    console.log(parseInt(flt)); // 10
+    console.log(Number(flt.toFixed(0))); // 10
+
+    console.log((parseInt(Math.random() * 5) + 1)); // 0 || 1 || 2 || 3 || 4
+
+    // ----------------------------------------
+
+    let userName = "Elzero";
+    console.log(userName.charAt(0).toLowerCase()); // e
+    console.log(userName.slice(0, 1).toLowerCase()); // e
+    console.log(userName.substr(0, 1).toLowerCase()); // e
+    console.log(userName.substring(0, 1).toLowerCase()); // e
+    console.log(userName.substring(userName.indexOf("E"), userName.indexOf("l")).toLowerCase()); // e
+    console.log(userName[0].toLowerCase().repeat(3)); // eee
+
+    let word = "Elzero";
+    let letterZ = "z";
+    let letterE = "e";
+    let letterO = "O";
+
+    console.log(word.includes("z")); // True
+    console.log(word.startsWith("E")); // True
+    console.log(word.endsWith("o")); // True
