@@ -875,25 +875,172 @@
 // "2 => Mahmoud"
 
 //----------------Challenge------------------------
-let myX = ['Ahmed', 'Osama', 'Mohamed', 'Sayed', 'Stop', 'Samera'];
-let myE = ['Amgad', 'Samah', 'Ameer', 'Omar', 'Othman', 'Amany', 'Samia', 'Mahmoud', 'Moneer', 'Marawan'];
-var counter = 0;
-for (let i = 0 ; i < myX.length ; i++) {
+// let myX = ['Ahmed', 'Osama', 'Mohamed', 'Sayed', 'Stop', 'Samera'];
+// let myE = ['Amgad', 'Samah', 'Ameer', 'Omar', 'Othman', 'Amany', 'Samia', 'Mahmoud', 'Moneer', 'Marawan'];
+// var counter = 0;
+// for (let i = 0 ; i < myX.length ; i++) {
 	
-	if (myX[i] === 'Stop') {
-		document.write(`<hr><h3><center>We Have ${counter} Admins</center></h3><hr>`)
-		break;
+// 	if (myX[i] === 'Stop') {
+// 		document.write(`<hr><h3><center>We Have ${counter} Admins</center></h3><hr>`)
+// 		break;
 
-	}else {
-		counter++;
-		document.write(`<center>`)
-		document.write(`<hr><h4>${myX[i]} Team ${i +1}'s Admin</h4>`)
-		document.write('<h4>Team Members</h4>')
+// 	}else {
+// 		counter++;
+// 		document.write(`<center>`)
+// 		document.write(`<hr><h4>${myX[i]} Team ${i +1}'s Admin</h4>`)
+// 		document.write('<h4>Team Members</h4>')
+// 	}
+// 	for (let j = 0; j < myE.length; j++) {
+// 		if (myE[j].charAt(0) === myX[i].charAt(0)){
+// 			document.write(`<p>- ${myE[j]}</p>`)
+// 			document.write(`</div>`)
+// 		}
+// 	}
+// }
+
+//------------------ Assignments & Notes - WEEK 8----------------------
+/*
+	-function - Intro and basic usage
+	--What is function
+	--User Defiend vs Built in
+	--Syntax + Basic Usage
+	--Example from real life
+	--parameter + argument
+	--practical example
+	-function
+	--Advanced Example
+	-Function
+	--Return
+	--Automatic simicolon Isertion
+	--Interrupting
+	-Default Parameter Function
+	--Default Function Parameter
+	--Function parameters default 'Undefiend'
+	--Old strategies [condition + Logical OR || ]
+	--Es6 Method
+	-Function Rest Parameter
+*/
+
+//--------------Challenge 8.1 -----------------------------
+/*
+  Function - Random Argument Challenge
+  ====================================
+  Create Function showDetails
+  Function Accept 3 Parameters [a, b, c]
+  Data Types For Info Is
+  - String => Name
+  - Number => Age
+  - Boolean => Status
+  Argument Is Random
+  Data Is Not Sorted Output Depend On Data Types
+  - Use Ternary Conditional Operator
+*/
+
+//-----------------Challenge 8.1-----------------------------------
+function showDetails(...allArgue) {
+	let userName = "Unknown";
+	let age = 0;
+	var status = status || false ;
+	let hireS = " Please Write all your details to know your status";
+	for (let i = 0 ; i < allArgue.length; i++) {
+		typeof allArgue[i] === 'string' ? userName = allArgue[i]  :
+		typeof allArgue[i] === 'number' ? age += allArgue[i] :
+		typeof allArgue[i] === 'boolean' ? status = allArgue[i] : 'Unknown';
+		status === true ? hireS = " you'r available to hire" :
+		status === false ? hireS = " you'r not available to hire" : hireS = " you'r not available to hire";
 	}
-	for (let j = 0; j < myE.length; j++) {
-		if (myE[j].charAt(0) === myX[i].charAt(0)){
-			document.write(`<p>- ${myE[j]}</p>`)
-			document.write(`</div>`)
+	age = age || 'Unknown';
+	if (age != 'Unknown' && userName != 'Unknown') {
+		document.write(`<div>`)
+		document.write(`<h3>Hello ${userName}, Your age is ${age}, ${hireS}</h3>`)
+		document.write(`</div>`)
+	} else {
+		document.write(`<h3>Please Write your details</h3>`)
+	}
+	
+}
+
+showDetails(true, 18, "Mohamed");
+showDetails("Osama", 35, false)
+showDetails(19, "Marawan")
+showDetails(true, 9, "Mohamed")
+showDetails("Mohamed")
+
+//------------------------Assignment 8.1------------------------
+function sayHello(theName, theGender) {
+	// Your Code Here
+	if (theGender == "Male") {
+		console.log(`Hello Mr ${theName}`);
+	}else if (theGender == "Female") {
+		console.log(`Hello Miss ${theName}`);
+	}else {
+		console.log(`Hello ${theName}`)
+	}
+  }
+  
+  // Needed Output
+  sayHello("Osama", "Male"); // "Hello Mr Osama"
+  sayHello("Eman", "Female"); // "Hello Miss Eman"
+  sayHello("Sameh"); // "Hello Sameh"
+  //---------------------
+  function calculate(firstNum, secondNum, operation) {
+	// Your Code Here
+	if (typeof firstNum == 'number' && typeof secondNum == 'number') {
+		if (operation == 'subtract') {
+			console.log(firstNum - secondNum);
+		}else if (operation == 'multiply') {
+			console.log(firstNum * secondNum);
+		}else {
+			console.log(firstNum + secondNum);
+		}
+	}else {
+		console.log("You forget a number")
+	}
+  }
+  
+  // Needed Output
+  calculate(20); // Second Number Not Found
+  calculate(20, 30); // 50
+  calculate(20, 30, 'add'); // 50
+  calculate(20, 30, 'subtract'); // -10
+  calculate(20, 30, 'multiply'); // 600
+
+  //------------------------
+  function ageInTime(theAge) {
+	// Your Code Here
+	if (theAge > 10 && theAge < 100)  {
+		console.log(`Your age in Months is : ${theAge * 12}\nYour age in Weeks is : ${theAge *12 * 4}\nYour age in Days is : ${theAge *12 * 4 * 7}\nYour age in Hours is : ${theAge *12 *4 *7 *24}\nYour age in Minutes is : ${theAge *12 *4 *7 *24 *60}\nYour age in Seconds is : ${theAge *12 *4 *7 *24 *60 *60}`)
+	}else {
+		console.log("Sorry your age is out of range")
+	}
+  }
+  
+  // Needed Output
+  ageInTime(110); // Age Out Of Range
+  ageInTime(38); // Months Example => 456 Months
+
+  //----------------------
+  function createSelectBox(startYear, endYear) {
+	// Your Code Here
+	document.write(`<p><lable for="years">Choose Year : </lable><select name="years" id="years">`)
+	for (let i = startYear; i <= endYear; i++){
+		document.write(`<option value ="${i}">${i}</option>`)
+	}
+  }
+  createSelectBox(2000, 2021);
+//--------------------------
+
+function multiply (...arrArgu) {
+	let x = 1;
+	for (let i = 0 ; i < arrArgu.length; i++) {
+		if (typeof arrArgu[i] == 'number') {
+			x *= parseInt(arrArgu[i]);
 		}
 	}
+	console.log(x)
 }
+
+
+multiply(10, 20); // 200
+multiply("A", 10, 30); // 300
+multiply(100.5, 10, "B"); // 1000
